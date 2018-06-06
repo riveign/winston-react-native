@@ -1,25 +1,33 @@
 import React, { Component } from 'react';
-import { AppRegistry, Text, View } from 'react-native';
+import { AppRegistry, Text, Button, View, Image } from 'react-native';
 
-class Greeting extends Component {
-  render() {
-    return (
-      <Text>Hello {this.props.name}!</Text>
-    );
+export default class MainScreen extends Component {
+  
+  onPressLearnMore = () => {
+    console.log('apretado');
   }
-}
-
-export default class LotsOfGreetings extends Component {
+  
   render() {
     return (
-      <View style={{alignItems: 'center'}}>
-        <Greeting name='Rexxar' />
-        <Greeting name='Jaina' />
-        <Greeting name='Valeera' />
+      <View style={{
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}>
+        <Image source = {require('./src/assets/logo/winston.png')} />
+        <Text style={{
+          fontSize: 20
+        }}>Buen dia Nacho!</Text>
+        <Button
+          onPress={this.onPressLearnMore}
+          title="Comenzar!"
+          color="#841584"
+          accessibilityLabel="Learn more about this purple button"
+      />
       </View>
     );
   }
 }
 
-// skip this line if using Create React Native App
-AppRegistry.registerComponent('AwesomeProject', () => LotsOfGreetings);
+AppRegistry.registerComponent('AwesomeProject', () => MainScreen);
